@@ -1,0 +1,32 @@
+%h1 Listing events
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    %tr
+    %td Название события
+    %td Начало
+    %td Подробнее
+    %td Редактировать
+    %td Удалить
+
+    - @events.each do |event|
+
+      %tr
+        %td= event.title
+        %td= event.start_time
+        %td= link_to 'Show', event
+        %td= link_to 'Edit', edit_event_path(event)
+        %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+  = paginate @events
+%br
+  = page_entries_info @events
+%br
+  = link_to 'Event', new_event_path, class: 'btn btn-primary'
