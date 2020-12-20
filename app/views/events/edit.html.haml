@@ -1,6 +1,15 @@
-%h1 Editing event
+%h1 New event
 
-= render 'form'
+= simple_form_for @event do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :location
+  = f.input :start_time, as: :datetime
+  = f.input :end_time, as: :datetime
+  = f.input :organizer_email, as: :email
+  = f.input :organizer_telegram
+  = f.input :link, as: :url
+  = f.submit 'Save'
 
 = link_to 'Show', @event
 \|

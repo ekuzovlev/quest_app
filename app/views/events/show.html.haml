@@ -1,5 +1,27 @@
 %p#notice= notice
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} Название
+      %th{:scope => "col"} Описание
+      %th{:scope => "col"} Место
+      %th{:scope => "col"} Начало
+      %th{:scope => "col"} Окончание
+      %th{:scope => "col"} E-mail
+      %th{:scope => "col"} Telegram
+      %th{:scope => "col"} Ссылка
+  %tbody
+    %tr
+      %th{:scope => "row"}= @event.title
+      %td= @event.description
+      %td= @event.location
+      %td= @event.start_time
+      %td= @event.end_time
+      %td= @event.organizer_email
+      %td= @event.organizer_telegram
+      %td= @event.link
 
+%br
 
 = link_to 'Edit', edit_event_path(@event)
 \|
